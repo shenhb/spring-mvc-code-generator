@@ -1,0 +1,166 @@
+ExtraConfig:
+  # mapper xml是否生成在根目录 默认true
+  xmlInRoot: true
+
+  # 常用项覆盖设置
+  # 生成文件的输出目录
+#  outputDir : "D://temp//"
+  # 需要包含的表名（与exclude二选一配置）(String[])
+  include:
+    - "sys_user"
+  # 需要排除的表名(String[])(yaml中 ~表示null)
+  exclude: ~
+
+
+# 跟包相关的配置项
+PackageConfig:
+  # 父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+  parent: "com.muggle.platform"
+  # 父包模块名。
+  moduleName: ~
+  # Entity包名
+  entity: "model"
+  # Service包名
+  service: "service"
+  # Service Impl包名
+  serviceImpl: "service.impl"
+  # Mapper包名
+  mapper: "mapper"
+  # Mapper XML包名
+  #xml: "mapper"
+  # Controller包名
+  controller: "controller"
+
+
+# 数据库配置
+DataSourceConfig:
+  # 数据库类型(DbType enum，根据driverName判断可以得出,除SqlServer)
+  # 例：mysql,mariadb,oracle,db2,h2,hsql,sqlite,sql_server,postgre_sql,other db
+  #dbType:
+  # PostgreSQL schemaname
+  schemaname: "public"
+  # 类型转换
+  #typeConvert:
+  # 驱动连接的URL
+  url: jdbc:mysql://127.0.0.1:3306/muggle?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+  # 驱动名称
+  driverName: com.mysql.jdbc.Driver
+  # 数据库连接用户名
+  username: root
+  # 数据库连接密码
+  password: root
+
+
+# 全局配置
+GlobalConfig:
+  # 生成文件的输出目录
+  outputDir : "D://temp//"
+  # 是否覆盖已有文件
+  fileOverride : true
+  # 是否打开输出目录
+  open : true
+  # 是否在xml中添加二级缓存配置
+  enableCache : false
+  # 开发人员
+  author: shenhb
+  # 开启 Kotlin 模式
+  kotlin : false
+  # 开启 ActiveRecord 模式
+  activeRecord : true
+  # 开启 BaseResultMap
+  baseResultMap : true
+  # 开启 baseColumnList
+  baseColumnList : false
+  # 指定生成的主键的ID类型
+  # AUTO(0, "数据库ID自增"), INPUT(1, "用户输入ID")
+  # /* 以下2种类型、只有当插入对象ID 为空，才自动填充。 */
+  # ID_WORKER(2, "全局唯一ID"), UUID(3, "全局唯一ID"), NONE(4, "该类型为未设置主键类型"),
+  # ID_WORKER_STR(5, "字符串全局唯一ID");
+  #idType: 1
+
+
+# 策略配置项
+StrategyConfig:
+  # 表名、字段名、是否使用下划线命名（默认 false）
+  DB_COLUMN_UNDERLINE: false
+  # 是否大写命名  全局大写命名 ORACLE 注意
+  isCapitalMode: false
+  # 数据库表映射到实体的命名策略(NamingStrategy)  nochange:不做任何改变，原样输出  underline_to_camel:下划线转驼峰命名(默认)
+  naming: underline_to_camel
+  # 表前缀 String[]
+  tablePrefix:
+    - "tlog_"
+    - "tsys_"
+    - ""
+  # 自定义继承的Entity类全称，带包名
+  #superEntityClass: com.muggle.common.domain.BaseModel
+  # 自定义基础的Entity类，公共字段(String[] )
+  superEntityColumns:
+    - "id"
+    - ""
+    - ""
+  # 自定义继承的Mapper类全称，带包名(ConstVal.SUPERD_MAPPER_CLASS)
+  superMapperClass:
+  # 自定义继承的Service类全称，带包名(ConstVal.SUPERD_SERVICE_CLASS)
+  superServiceClass:
+  # 自定义继承的ServiceImpl类全称，带包名(ConstVal.SUPERD_SERVICEIMPL_CLASS)
+  superServiceImplClass:
+  # 自定义继承的Controller类全称，带包名
+  superControllerClass:
+  # 需要包含的表名（与exclude二选一配置）(String[])
+  include:
+    - ""
+    #- ""
+    #- ""
+  # 需要排除的表名(String[])(yaml中 ~表示null)
+  exclude: ~
+  #      - ""
+  #      - ""
+  #      - ""
+  # 【实体】是否生成字段常量（默认 false）<br>
+  # -----------------------------------<br>
+  # final ID = "test_id":
+  entityColumnConstant: false
+  # 【实体】是否为构建者模型（默认 false）<br>
+  # -----------------------------------<br>
+  # public User setName(name) { this.name = name: return this: }
+  entityBuilderModel: false
+  # 【实体】是否为lombok模型（默认 false）<br>
+  # <a href="https://projectlombok.org/">document</a>
+  entityLombokModel: false
+  # 类型字段是否移除is前缀（默认 false）<br>
+  # 比如 : 数据库字段名称 : 'is_xxx',类型为 : tinyint. 在映射实体的时候则会去掉is,在实体类中映射最终结果为 xxx
+  entityBooleanColumnRemoveIsPrefix: false
+  # 生成 <code>@RestController</code> 控制器
+  # <pre>
+  #      <code>@Controller</code> -> <code>@RestController</code>
+  # </pre>
+  restControllerStyle: true
+  # 驼峰转连字符
+  # <pre>
+  #      <code>@RequestMapping("/managerUserActionHistory")</code> -> <code>@RequestMapping("/manager-user-action-history")</code>
+  # </pre>
+  controllerMappingHyphenStyle: false
+  # 乐观锁属性名称
+  versionFieldName: version
+  # 逻辑删除属性名称
+  logicDeleteFieldName: is_del
+  # 表填充字段(List<TableFill>)
+  tableFillList: ~
+
+
+# 模板路径配置项（如下任何一个模块如果设置 ~，将不生成该模块。）
+TemplateConfig:
+  # (ConstVal.TEMPLATE_ENTITY_JAVA = "/templates/entity.java.vm")
+  entity: /generator/templates/entity.java.vm
+  # (ConstVal.TEMPLATE_SERVICE = "/templates/service.java.vm")
+  #service:
+  # (ConstVal.TEMPLATE_SERVICEIMPL = "/templates/serviceImpl.java.vm")
+  #serviceImpl:
+  # (ConstVal.TEMPLATE_MAPPER = "/templates/mapper.java.vm")
+  #mapper:
+  # 设置为null关闭生成(ConstVal.TEMPLATE_XML = "/templates/mapper.xml.vm")
+  xml: /templates/mapper.xml.vm
+  # (ConstVal.TEMPLATE_CONTROLLER = "/templates/controller.java.vm")
+  #controller:
+
