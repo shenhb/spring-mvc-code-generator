@@ -1,4 +1,4 @@
-package com.muggle.convert;
+package com.muggle.generator.convert;
 
 import com.hannesdorfmann.annotationprocessing101.factory.annotation.Factory;
 import org.apache.commons.lang3.ArrayUtils;

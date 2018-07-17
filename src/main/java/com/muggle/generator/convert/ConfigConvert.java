@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.muggle.convert;
+package com.muggle.generator.convert;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.muggle.convert;
+package com.muggle.generator.convert;
 
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.hannesdorfmann.annotationprocessing101.factory.annotation.Factory;

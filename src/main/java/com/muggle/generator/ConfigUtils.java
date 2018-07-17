@@ -1,7 +1,7 @@
 package com.muggle.generator;
 
-import com.muggle.convert.ConfigConvert;
-import com.muggle.convert.ConfigConvertFactory;
+import com.muggle.generator.convert.ConfigConvert;
+import com.muggle.generator.convert.ConfigConvertFactory;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.ibatis.io.Resources;
 import org.yaml.snakeyaml.Yaml;
@@ -56,7 +56,7 @@ public class ConfigUtils {
     }
 
     private static Map<String, Map<String, Object>> getConfigMap() throws IOException {
-        return getConfigMapFromYml("generator/generator.yml");
+        return getConfigMapFromYml("generator.yml");
     }
 
     private static Map<String, Map<String, Object>> getConfigMapFromYml(String ymlResourcePath) throws IOException {

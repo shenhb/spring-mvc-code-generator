@@ -1,8 +1,9 @@
+# 额外扩展配置
 ExtraConfig:
   # mapper xml是否生成在根目录 默认true
   xmlInRoot: true
 
-  # 常用项覆盖设置
+  # 常用项覆盖配置
   # 生成文件的输出目录
 #  outputDir : "D://temp//"
   # 需要包含的表名（与exclude二选一配置）(String[])
@@ -10,27 +11,6 @@ ExtraConfig:
     - "sys_user"
   # 需要排除的表名(String[])(yaml中 ~表示null)
   exclude: ~
-
-
-# 跟包相关的配置项
-PackageConfig:
-  # 父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-  parent: "com.muggle.platform"
-  # 父包模块名。
-  moduleName: ~
-  # Entity包名
-  entity: "model"
-  # Service包名
-  service: "service"
-  # Service Impl包名
-  serviceImpl: "service.impl"
-  # Mapper包名
-  mapper: "mapper"
-  # Mapper XML包名
-  #xml: "mapper"
-  # Controller包名
-  controller: "controller"
-
 
 # 数据库配置
 DataSourceConfig:
@@ -50,6 +30,24 @@ DataSourceConfig:
   # 数据库连接密码
   password: root
 
+# 跟包相关的配置项
+PackageConfig:
+  # 父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
+  parent: "com.muggle.platform"
+  # 父包模块名。
+  moduleName: ~
+  # Entity包名
+  entity: "model"
+  # Service包名
+  service: "service"
+  # Service Impl包名
+  serviceImpl: "service.impl"
+  # Mapper包名
+  mapper: "mapper"
+  # Mapper XML包名
+  #xml: "mapper"
+  # Controller包名
+  controller: "controller"
 
 # 全局配置
 GlobalConfig:
@@ -96,7 +94,7 @@ StrategyConfig:
   #superEntityClass: com.muggle.common.domain.BaseModel
   # 自定义基础的Entity类，公共字段(String[] )
   superEntityColumns:
-    - "id"
+#    - "id"
     - ""
     - ""
   # 自定义继承的Mapper类全称，带包名(ConstVal.SUPERD_MAPPER_CLASS)
@@ -152,7 +150,7 @@ StrategyConfig:
 # 模板路径配置项（如下任何一个模块如果设置 ~，将不生成该模块。）
 TemplateConfig:
   # (ConstVal.TEMPLATE_ENTITY_JAVA = "/templates/entity.java.vm")
-  entity: /generator/templates/entity.java.vm
+  entity: /templates/entity.java.vm
   # (ConstVal.TEMPLATE_SERVICE = "/templates/service.java.vm")
   #service:
   # (ConstVal.TEMPLATE_SERVICEIMPL = "/templates/serviceImpl.java.vm")
